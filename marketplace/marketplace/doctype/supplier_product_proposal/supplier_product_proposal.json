@@ -1,0 +1,212 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field[product_name]-[supplier]",
+ "creation": "2025-08-01 23:35:42.991976",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_xqil",
+  "product_name",
+  "description",
+  "uom",
+  "images",
+  "cat_product",
+  "supplier_information_section",
+  "supplier",
+  "region",
+  "pricing_and_margin_section",
+  "supplier_price",
+  "admin_selling_price",
+  "margin",
+  "suggested_selling_price",
+  "approval_notes",
+  "actions_section",
+  "stat",
+  "amended_from",
+  "approve_proposal",
+  "reject_proposal"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_xqil",
+   "fieldtype": "Section Break",
+   "label": "Product Information"
+  },
+  {
+   "fieldname": "product_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Product Name",
+   "no_copy": 1,
+   "print_hide": 1,
+   "read_only": 1,
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Description"
+  },
+  {
+   "fieldname": "images",
+   "fieldtype": "Attach",
+   "label": "Images"
+  },
+  {
+   "fieldname": "supplier_information_section",
+   "fieldtype": "Section Break",
+   "label": "Supplier Information"
+  },
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Supplier",
+   "options": "Supplier",
+   "reqd": 1
+  },
+  {
+   "fieldname": "region",
+   "fieldtype": "Link",
+   "label": "Region",
+   "options": "Territory"
+  },
+  {
+   "fieldname": "pricing_and_margin_section",
+   "fieldtype": "Section Break",
+   "label": "Pricing and Margin"
+  },
+  {
+   "fieldname": "supplier_price",
+   "fieldtype": "Currency",
+   "label": "Supplier Price",
+   "reqd": 1
+  },
+  {
+   "description": "\tHarga jual final yang Anda tetapkan.",
+   "fieldname": "admin_selling_price",
+   "fieldtype": "Currency",
+   "label": "Admin Selling Price"
+  },
+  {
+   "description": "Dihitung otomatis: ((Admin Selling Price - Supplier Price) / Supplier Price) * 100.",
+   "fieldname": "margin",
+   "fieldtype": "Read Only",
+   "label": "Margin (%)",
+   "no_copy": 1,
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "stat",
+   "fieldtype": "Select",
+   "label": "Status and Approval",
+   "options": "Draft\nSubmitted\nApproved\nRejected\nPending",
+   "read_only": 1
+  },
+  {
+   "fieldname": "approval_notes",
+   "fieldtype": "Text Editor",
+   "label": "Approval Notes",
+   "no_copy": 1,
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "approve_proposal",
+   "fieldtype": "Button",
+   "ignore_user_permissions": 1,
+   "label": "Approve Proposal"
+  },
+  {
+   "fieldname": "reject_proposal",
+   "fieldtype": "Button",
+   "label": "Reject Proposal"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Supplier Product Proposal",
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "description": "Harga jual yang disarankan supplier (tidak wajib).",
+   "fieldname": "suggested_selling_price",
+   "fieldtype": "Currency",
+   "label": "Suggested Selling Price"
+  },
+  {
+   "fieldname": "cat_product",
+   "fieldtype": "Link",
+   "label": "Category Product",
+   "options": "Item Group"
+  },
+  {
+   "fieldname": "uom",
+   "fieldtype": "Link",
+   "label": "Unit Of Measurement",
+   "options": "UOM"
+  },
+  {
+   "fieldname": "actions_section",
+   "fieldtype": "Section Break",
+   "label": "Actions"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-08-11 01:37:07.201021",
+ "modified_by": "Administrator",
+ "module": "marketplace",
+ "name": "Supplier Product Proposal",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Marketplace Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Supplier",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

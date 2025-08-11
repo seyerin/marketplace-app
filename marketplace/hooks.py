@@ -242,3 +242,11 @@ app_license = "mit"
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
+# Hook untuk custom web template context
+web_template_context = {
+    "templates/web_shop_listing.html": "marketplace.marketplace.custom_webshop_logic.filter_webshop_items"
+}
+
+override_whitelisted_methods = {
+    "custom_app.utils.amend_proposal": "marketplace.utils.amend_proposal.amend_proposal"
+}

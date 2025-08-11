@@ -1,0 +1,110 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-08-07 17:59:10.621452",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_d9vr",
+  "buyer",
+  "supplier",
+  "rating",
+  "review_text",
+  "transaction_id",
+  "purchase_order",
+  "item"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_d9vr",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "buyer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "supplier",
+   "fieldtype": "Link",
+   "label": "Supplier",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "rating",
+   "fieldtype": "Float",
+   "label": "Rating"
+  },
+  {
+   "fieldname": "review_text",
+   "fieldtype": "Data",
+   "label": "Review"
+  },
+  {
+   "fieldname": "transaction_id",
+   "fieldtype": "Link",
+   "label": "Transaksi",
+   "options": "Sales Order"
+  },
+  {
+   "fieldname": "purchase_order",
+   "fieldtype": "Link",
+   "label": "Purchase Order",
+   "options": "Purchase Order"
+  },
+  {
+   "fieldname": "item",
+   "fieldtype": "Link",
+   "label": "item ",
+   "options": "Item"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-08-09 17:40:03.448963",
+ "modified_by": "Administrator",
+ "module": "marketplace",
+ "name": "Review Buyer",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Supplier",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
