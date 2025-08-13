@@ -1,0 +1,24 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Supplier Product Proposal",
+  "enabled": 1,
+  "modified": "2025-08-11 13:34:43.900730",
+  "module": "marketplace",
+  "name": "Supplier Margin Calculation",
+  "script": "frappe.ui.form.on('Supplier Product Proposal', {\r\n    supplier_price: function(frm) {\r\n        calculate_margin(frm);\r\n    },\r\n    admin_selling_price: function(frm) {\r\n        calculate_margin(frm);\r\n    }\r\n});\r\n\r\nlet calculate_margin = function(frm) {\r\n    let supplier_price = frm.doc.supplier_price || 0;\r\n    let admin_selling_price = frm.doc.admin_selling_price || 0;\r\n\r\n    if (admin_selling_price > 0) {\r\n        let margin = ((admin_selling_price - supplier_price) / admin_selling_price) * 100;\r\n        frm.set_value('margin', margin.toFixed(2));\r\n    } else {\r\n        frm.set_value('margin', 0);\r\n    }\r\n};",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Purchase Order",
+  "enabled": 0,
+  "modified": "2025-08-11 13:34:52.253170",
+  "module": "marketplace",
+  "name": "Tombol Supplier Review Buyer",
+  "script": "// Script untuk menambahkan tombol \"Review Buyer\" di Purchase Order\r\n\r\nfrappe.ui.form.on('Purchase Order', {\r\n    refresh: function(frm) {\r\n        // Hanya tampilkan tombol jika Purchase Order sudah disubmit dan belum ada review\r\n        if (frm.doc.docstatus === 1) { // 1 = Submitted\r\n            frappe.db.exists('Buyer Review', {'purchase_order': frm.doc.name}).then(review_exists => {\r\n                if (!review_exists) {\r\n                    frm.add_custom_button(__('Review Buyer'), function() {\r\n                        // Tampilkan dialog untuk mengisi rating dan review\r\n                        frappe.prompt([\r\n                            {\r\n                                \"label\": \"Rating (1-5)\",\r\n                                \"fieldname\": \"rating\",\r\n                                \"fieldtype\": \"Int\",\r\n                                \"reqd\": 1,\r\n                                \"default\": 5\r\n                            },\r\n                            {\r\n                                \"label\": \"Review Text\",\r\n                                \"fieldname\": \"review_text\",\r\n                                \"fieldtype\": \"Text\",\r\n                                \"reqd\": 1\r\n                            }\r\n                        ], function(values) {\r\n                            // Panggil metode Python (DocType Method) untuk mengupdate review\r\n                            frappe.call({\r\n                                method: \"frappe.client.set_value\",\r\n                                args: {\r\n                                    doctype: \"Buyer Review\",\r\n                                    name: review_exists.name, // Ini butuh perbaikan\r\n                                    fieldname: {\r\n                                        \"rating\": values.rating,\r\n                                        \"review_text\": values.review_text\r\n                                    }\r\n                                },\r\n                                callback: function(r) {\r\n                                    if (r.message) {\r\n                                        frappe.msgprint(__('Review berhasil disimpan!'));\r\n                                        frm.reload_doc();\r\n                                    }\r\n                                }\r\n                            });\r\n                        }, __('Submit Buyer Review'), __('Submit'));\r\n                    });\r\n                }\r\n            });\r\n        }\r\n    }\r\n});",
+  "view": "Form"
+ }
+]

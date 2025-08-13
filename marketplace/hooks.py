@@ -250,3 +250,22 @@ web_template_context = {
 override_whitelisted_methods = {
     "custom_app.utils.amend_proposal": "marketplace.utils.amend_proposal.amend_proposal"
 }
+
+# Fixtures
+
+fixtures = [
+    {"dt": "Client Script", "filters": [["module", "=", "Marketplace"]]},
+    {"dt": "Server Script", "filters": [["module", "=", "Marketplace"]]},
+    {"dt": "Custom Field", "filters": [["module", "=", "Marketplace"]]},
+    {"dt": "DocType", "filters": [["custom", "=", 1], ["module", "=", "Marketplace"]]},
+    {"dt": "Property Setter", "filters": [["module", "=", "Marketplace"]]},
+    {"dt": "Web Form", "filters": [["module", "=", "Marketplace"]]},
+    {"dt": "Web Template", "filters": [["module", "=", "Marketplace"]]},
+    {"dt": "Web Page", "filters": [["module", "=", "Marketplace"]]},
+]
+
+# fixtures = [
+#     {"dt": "Custom Field", "filters": [["module", "=", "Marketplace"]]},
+#     {"dt": "Client Script", "filters": [["module", "=", "Marketplace"]]}
+# ]
+
